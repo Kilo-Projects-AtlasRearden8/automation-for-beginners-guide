@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organizing Files — Simple Automation for Beginners</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Organizing Files</h1>
+  <div class="credit">Published by <strong>Asdale Dynamics, LLC</strong> (Indiana, formed October 2026) &mdash; credit to Dylan Asdale, registered nurse turned AI author and founder of Asdale Dynamics, LLC.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="safety.html">Safety first</a>
+    <a href="repeating-tasks.html">Repeating tasks</a>
+    <a href="email-reminders.html">Email reminders</a>
+    <a href="scheduling.html">Scheduling</a>
+    <a href="checklist.html">Printable checklist</a>
+  </nav>
+</header>
+
+<main>
+<h2>What this does</h2>
+<p><code>scripts/organize_files.py</code> looks at every file in a folder and moves it into a subfolder named after its type:</p>
+<ul>
+  <li><code>Documents/</code> &mdash; .pdf, .doc, .docx, .txt, .csv, .xlsx, .pptx, .rtf, .odt</li>
+  <li><code>Images/</code> &mdash; .jpg, .jpeg, .png, .gif, .webp, .bmp, .svg</li>
+  <li><code>Audio/</code> &mdash; .mp3, .wav, .m4a, .ogg, .flac</li>
+  <li><code>Video/</code> &mdash; .mp4, .mov, .avi, .mkv, .wmv</li>
+  <li><code>Archives/</code> &mdash; .zip, .rar, .7z, .tar, .gz, .bz2</li>
+  <li><code>Installers/</code> &mdash; .exe, .dmg, .pkg, .msi</li>
+  <li><code>Other/</code> &mdash; anything that doesn&rsquo;t match the above</li>
+</ul>
+<p>Files without extensions (and folders already in the folder) are left alone. If a file with the same name already exists in the destination, the script renames it (<code>file-1.pdf</code>) instead of overwriting.</p>
+
+<h2>Step 1: Make a test copy</h2>
+<pre><code>cp -r ~/Downloads ~/Downloads-Test</code></pre>
+
+<h2>Step 2: Preview first (dry run)</h2>
+<pre><code>python3 scripts/organize_files.py ~/Downloads-Test</code></pre>
+<p>This prints what it <em>would</em> move without touching anything. Review the list carefully.</p>
+
+<h2>Step 3: Organize for real</h2>
+<pre><code>python3 scripts/organize_files.py ~/Downloads-Test --apply</code></pre>
+
+<h2>Step 4: Check the results</h2>
+<p>Open the folder and confirm the files landed in the right folders. If something is wrong, delete the test folder and try again. Only run it on your real <code>~/Downloads</code> once you&rsquo;re confident.</p>
+
+<div class="rule"><b>Safety reminder:</b> This script moves files in place (on the folder you point it at). That&rsquo;s why we always test on a copy first. Your originals stay untouched until you&rsquo;re sure.</div>
+
+<p class="small">Read the full guide: <code>docs/file-organization.md</code> &bull; See the script: <code>scripts/organize_files.py</code></p>
+</main>
+
+<footer>
+Simple Automation for Beginners &mdash; Asdale Dynamics, LLC.<br>
+MIT License. Copyright (c) 2026 Asdale Dynamics, LLC.<br>
+Learn more: <a href="https://dylanasdale.github.io" target="_blank" rel="noopener">dylanasdale.github.io</a>
+</footer>
+</div>
+</body>
+</html>

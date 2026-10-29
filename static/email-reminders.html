@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Reminders — Simple Automation for Beginners</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Email Reminders</h1>
+  <div class="credit">Published by <strong>Asdale Dynamics, LLC</strong> (Indiana, formed October 2026) &mdash; credit to Dylan Asdale, registered nurse turned AI author and founder of Asdale Dynamics, LLC.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="safety.html">Safety first</a>
+    <a href="file-organization.html">Organizing files</a>
+    <a href="repeating-tasks.html">Repeating tasks</a>
+    <a href="scheduling.html">Scheduling</a>
+    <a href="checklist.html">Printable checklist</a>
+  </nav>
+</header>
+
+<main>
+<h2>What this does</h2>
+<p><code>scripts/email_reminders.py</code> reads a <code>reminders.txt</code> file you maintain and tells you which reminders are due today, coming up soon, or already overdue. In dry-run mode (the default) it prints each reminder and a <code>mailto:</code> link you can click to compose the email. With <code>--apply</code> and SMTP environment variables set in your shell, it can send the email for real.</p>
+
+<h2>A sample reminders.txt</h2>
+<pre><code># Reminder name | due date (YYYY-MM-DD) | message
+Electric bill | 2026-11-05 | Pay the electric bill
+Library books | 2026-11-10 | Return library books
+Dentist | 2026-11-01 | Dentist appointment</code></pre>
+
+<h2>Step 1: Create your reminders file</h2>
+<p>Create <code>reminders.txt</code> somewhere easy to find, like your Documents folder. Use real dates in year-month-day format (2026-11-05).</p>
+
+<h2>Step 2: Run the reminder (dry run)</h2>
+<pre><code>python3 scripts/email_reminders.py ~/Documents/reminders.txt</code></pre>
+<p>You&rsquo;ll see what&rsquo;s due today, upcoming within 7 days, and overdue &mdash; plus a <code>mailto:</code> link for each one.</p>
+
+<h2>Step 3: Send for real (optional)</h2>
+<p>Set these environment variables in your shell (never in this project), then run with <code>--apply</code>:</p>
+<pre><code>export SMTP_HOST=smtp.example.com
+export SMTP_USER=you@example.com
+export SMTP_PASS=your-app-password
+export FROM_EMAIL=you@example.com
+export TO_EMAIL=you@example.com
+
+python3 scripts/email_reminders.py ~/Documents/reminders.txt --apply</code></pre>
+<p>No credentials are stored in this script or the repo. <code>--apply</code> sends nothing unless all SMTP variables are set.</p>
+
+<div class="rule"><b>Notes:</b> This is an organizational tool, not financial or medical advice. All reminder data stays in <code>reminders.txt</code> on your computer. Do not commit <code>reminders.txt</code> &mdash; it contains your personal data.</div>
+
+<p class="small">Read the full guide: <code>docs/email-reminders.md</code> &bull; See the script: <code>scripts/email_reminders.py</code></p>
+</main>
+
+<footer>
+Simple Automation for Beginners &mdash; Asdale Dynamics, LLC.<br>
+MIT License. Copyright (c) 2026 Asdale Dynamics, LLC.<br>
+Learn more: <a href="https://dylanasdale.github.io" target="_blank" rel="noopener">dylanasdale.github.io</a>
+</footer>
+</div>
+</body>
+</html>

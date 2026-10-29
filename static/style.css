@@ -1,0 +1,94 @@
+/* Simple Automation for Beginners — static site styles */
+/* Published by Asdale Dynamics, LLC */
+
+:root {
+  --ink: #111827;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --bg: #ffffff;
+  --soft: #f9fafb;
+  --accent: #1f2937;
+  --accent-hover: #374151;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+header {
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+  margin-bottom: 32px;
+  background: var(--soft);
+}
+header .wrap { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+header h1 { font-size: 24px; margin: 0; letter-spacing: -0.01em; }
+header .credit { font-size: 13px; color: var(--muted); }
+header .credit strong { color: var(--ink); }
+
+nav a { margin-right: 18px; font-weight: 500; font-size: 15px; color: var(--ink); }
+nav a:hover { color: var(--accent); }
+
+h1 { font-size: 30px; margin-top: 0; }
+h2 { font-size: 20px; margin-top: 30px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+h3 { font-size: 16px; margin-top: 24px; }
+p { margin: 12px 0; }
+ul, ol { margin: 10px 0 18px 0; padding-left: 22px; }
+li { margin: 6px 0; }
+
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 14px; background: var(--soft); padding: 2px 6px; border-radius: 4px; }
+pre { background: var(--soft); padding: 12px 16px; border-radius: 6px; overflow-x: auto; }
+pre code { background: transparent; padding: 0; font-size: 13px; }
+
+table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; font-size: 14px; }
+th { background: var(--soft); font-weight: 600; }
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin: 22px 0;
+  background: var(--bg);
+}
+.card b { color: var(--ink); }
+
+.rule {
+  background: #eff6ff;
+  border-left: 4px solid #2563eb;
+  padding: 12px 16px;
+  border-radius: 0 6px 6px 0;
+  margin: 18px 0;
+  font-size: 14px;
+}
+.rule b { color: #1e3a8a; }
+
+footer {
+  margin-top: 48px;
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}
+footer a { color: var(--muted); }
+
+.small { font-size: 13px; color: var(--muted); }
+
+@media (max-width: 600px) {
+  .wrap { padding: 0 14px; }
+  header .wrap { flex-direction: column; align-items: flex-start; gap: 8px; }
+  nav a { margin-right: 12px; display: inline-block; margin-bottom: 4px; }
+}

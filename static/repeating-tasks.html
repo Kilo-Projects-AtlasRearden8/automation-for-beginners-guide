@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repeating Tasks — Simple Automation for Beginners</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Repeating Tasks</h1>
+  <div class="credit">Published by <strong>Asdale Dynamics, LLC</strong> (Indiana, formed October 2026) &mdash; credit to Dylan Asdale, registered nurse turned AI author and founder of Asdale Dynamics, LLC.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="safety.html">Safety first</a>
+    <a href="file-organization.html">Organizing files</a>
+    <a href="email-reminders.html">Email reminders</a>
+    <a href="scheduling.html">Scheduling</a>
+    <a href="checklist.html">Printable checklist</a>
+  </nav>
+</header>
+
+<main>
+<h2>What this does</h2>
+<p><code>scripts/repeat_task.py</code> runs a command you give it, every N seconds, up to M times (or forever if you don&rsquo;t set a limit). It defaults to dry-run: it prints the schedule without running anything, so you can see exactly what will happen before anything runs.</p>
+
+<h2>Step 1: Preview the schedule</h2>
+<pre><code>python3 scripts/repeat_task.py "echo hello" --every 10 --times 3</code></pre>
+<p>This prints what it would run, every 10 seconds, 3 times &mdash; without executing anything.</p>
+
+<h2>Step 2: Run for real</h2>
+<pre><code>python3 scripts/repeat_task.py "echo hello" --every 10 --times 3 --apply</code></pre>
+<p>The command runs immediately, then again every 10 seconds, 3 times total. Press Ctrl-C to stop early.</p>
+
+<h2>Options</h2>
+<ul>
+  <li><code>--every N</code> &mdash; seconds between runs (default 60)</li>
+  <li><code>--times M</code> &mdash; stop after M runs (default: repeat forever)</li>
+  <li><code>--apply</code> &mdash; run the command for real (default is preview only)</li>
+</ul>
+
+<h2>Examples</h2>
+<p>Repeat a backup script every hour, 4 times:</p>
+<pre><code>python3 scripts/repeat_task.py "python3 my_backup.py" --every 3600 --times 4 --apply</code></pre>
+
+<p class="small">Read the full guide: <code>docs/repeating-tasks.md</code> &bull; See the script: <code>scripts/repeat_task.py</code></p>
+</main>
+
+<footer>
+Simple Automation for Beginners &mdash; Asdale Dynamics, LLC.<br>
+MIT License. Copyright (c) 2026 Asdale Dynamics, LLC.<br>
+Learn more: <a href="https://dylanasdale.github.io" target="_blank" rel="noopener">dylanasdale.github.io</a>
+</footer>
+</div>
+</body>
+</html>

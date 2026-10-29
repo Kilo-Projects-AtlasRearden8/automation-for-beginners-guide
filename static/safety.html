@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safety First — Simple Automation for Beginners</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Safety First</h1>
+  <div class="credit">Published by <strong>Asdale Dynamics, LLC</strong> (Indiana, formed October 2026) &mdash; credit to Dylan Asdale, registered nurse turned AI author and founder of Asdale Dynamics, LLC.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="file-organization.html">Organizing files</a>
+    <a href="repeating-tasks.html">Repeating tasks</a>
+    <a href="email-reminders.html">Email reminders</a>
+    <a href="scheduling.html">Scheduling</a>
+    <a href="checklist.html">Printable checklist</a>
+  </nav>
+</header>
+
+<main>
+<h2>The golden rules</h2>
+<ol>
+  <li><b>Test on copies, never move originals.</b> Every script in this manual works on a copy of your files by default. Run it on a test folder first. Only point it at your real files once you&rsquo;re sure it does what you expect.</li>
+  <li><b>Scripts preview before they act.</b> Every script defaults to dry-run mode: it shows you what it <em>would</em> do without changing anything. You opt in to making changes (with <code>--apply</code>), never by accident.</li>
+  <li><b>You can read every script.</b> These are tiny Python scripts (under 100 lines each). Open them, read them, and only run them when you understand what they do.</li>
+  <li><b>Start small.</b> Automate one folder, one task, one afternoon. Don&rsquo;t try to organize your whole computer in one sitting.</li>
+</ol>
+
+<div class="rule"><b>Why we test on copies:</b> If a script has a bug, you want it to scramble a test folder, not your only copy of last year&rsquo;s tax documents. A copy costs nothing; your originals are irreplaceable.</div>
+
+<h2>How to make a test copy</h2>
+<ul>
+  <li><b>Windows:</b> copy your folder (e.g. Downloads) to <code>Downloads Test</code></li>
+  <li><b>Mac:</b> right-click the folder &rarr; Duplicate</li>
+  <li><b>Linux:</b> <code>cp -r Downloads Downloads-Test</code></li>
+</ul>
+<p>Point the script at the test copy first. Check the results. Then decide whether to run it on the real folder.</p>
+
+<h2>What these scripts do NOT do</h2>
+<ul>
+  <li>They do not send your files anywhere. Everything stays on your computer (except <code>email_reminders.py</code> with <code>--apply</code>, which sends email via your own SMTP using environment variables you set &mdash; nothing is hardcoded).</li>
+  <li>They do not require API keys, accounts, or personal information.</li>
+  <li>They do not delete anything unless you explicitly opt in.</li>
+  <li>No credentials or secrets are stored in this project.</li>
+</ul>
+
+<p>If a script ever asks for something that makes you uncomfortable, stop and read the source. You&rsquo;re in control.</p>
+
+<p class="small">Read the full guide: <code>docs/safety.md</code></p>
+</main>
+
+<footer>
+Simple Automation for Beginners &mdash; Asdale Dynamics, LLC.<br>
+MIT License. Copyright (c) 2026 Asdale Dynamics, LLC.<br>
+Learn more: <a href="https://dylanasdale.github.io" target="_blank" rel="noopener">dylanasdale.github.io</a>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scheduling — Simple Automation for Beginners</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Scheduling</h1>
+  <div class="credit">Published by <strong>Asdale Dynamics, LLC</strong> (Indiana, formed October 2026) &mdash; credit to Dylan Asdale, registered nurse turned AI author and founder of Asdale Dynamics, LLC.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="safety.html">Safety first</a>
+    <a href="file-organization.html">Organizing files</a>
+    <a href="repeating-tasks.html">Repeating tasks</a>
+    <a href="email-reminders.html">Email reminders</a>
+    <a href="checklist.html">Printable checklist</a>
+  </nav>
+</header>
+
+<main>
+<h2>What this does</h2>
+<p><code>scripts/schedule_task.py</code> helps you add, list, and remove scheduled jobs in your user crontab (Mac/Linux). It defaults to dry-run: it prints exactly what it would do without changing anything. With <code>--apply</code>, it writes to your crontab (a backup is made first).</p>
+
+<p>On Windows, cron isn&rsquo;t available, so the guide prints the equivalent Task Scheduler (<code>schtasks</code>) command for you to run yourself.</p>
+
+<h2>Step 1: See what&rsquo;s already scheduled</h2>
+<pre><code>python3 scripts/schedule_task.py --list</code></pre>
+<p>This is read-only and safe to run anytime.</p>
+
+<h2>Step 2: Preview adding a job</h2>
+<p>A cron schedule has five fields: minute hour day month weekday. For example, <code>*/15 * * * *</code> means every 15 minutes.</p>
+<pre><code>python3 scripts/schedule_task.py --add '*/15 * * * *' 'python3 my_backup.py'</code></pre>
+<p>This prints the cron line it would add, without changing your crontab.</p>
+
+<h2>Step 3: Add the job for real</h2>
+<pre><code>python3 scripts/schedule_task.py --add '*/15 * * * *' 'python3 my_backup.py' --apply</code></pre>
+<p>A backup of your current crontab is saved to <code>~/.crontab.backup</code> before any change.</p>
+
+<h2>Step 4: Remove a job</h2>
+<pre><code>python3 scripts/schedule_task.py --remove 'python3 my_backup.py' --apply</code></pre>
+
+<h2>Windows (Task Scheduler)</h2>
+<p>Cron isn&rsquo;t available on Windows. Use Task Scheduler instead, e.g.:</p>
+<pre><code>schtasks /create /tn "MyBackup" /tr "python3 my_backup.py" /sc minute /mo 15</code></pre>
+
+<div class="rule"><b>Safety reminder:</b> Preview first, then add <code>--apply</code>. Only your own crontab is touched. A backup is made before any change so you can restore it if needed.</div>
+
+<p class="small">Read the full guide: <code>docs/scheduling.md</code> &bull; See the script: <code>scripts/schedule_task.py</code></p>
+</main>
+
+<footer>
+Simple Automation for Beginners &mdash; Asdale Dynamics, LLC.<br>
+MIT License. Copyright (c) 2026 Asdale Dynamics, LLC.<br>
+Learn more: <a href="https://dylanasdale.github.io" target="_blank" rel="noopener">dylanasdale.github.io</a>
+</footer>
+</div>
+</body>
+</html>
