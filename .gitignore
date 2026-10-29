@@ -3,7 +3,7 @@
 .env.*
 .venv/
 __pycache__/
+bills.txt
 dist/*.tmp
 node_modules/
 reminders.txt
-bills.txt
